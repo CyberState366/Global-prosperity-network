@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Global Prosperity Network - Futuristic affiliate hub for Gaming, Design, CAD, SaaS, VPN and more. Admin portal and news system.">
+  <meta name="author" content="Global Prosperity Network">
+  <meta name="keywords" content="affiliate, futuristic, marketing, gaming, design, SaaS, VPN, travel, commissions, global prosperity">
+  <title>Global Prosperity Network | Futuristic Affiliate Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="default">
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <aside class="side-menu" id="sideMenu" aria-label="Site menu">
+    <div class="side-menu-top">
+      <div class="side-menu-title">
+        <span><i class="fas fa-layer-group"></i> Menu</span>
+        <button id="closeMenuBtn" class="close-menu-btn danger-icon-btn small" aria-label="Close menu"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <nav class="side-nav">
+      <div class="menu-item language-menu-item">
+        <span class="menu-item-icon"><i class="fas fa-globe"></i></span>
+        <div class="language-menu-content">
+          <span class="language-menu-label">Language</span>
+          <div id="googleTranslateElement" class="google-translate-widget" aria-label="Translate page">
+            <select class="custom-translate-select" aria-label="Select language" onchange="window.openExternalTranslator(this.value); this.value='';">
+              <option value="">Language</option>
+              <option value="sw">Swahili</option>
+              <option value="en">English</option>
+              <option value="fr">French</option>
+              <option value="es">Spanish</option>
+              <option value="ar">Arabic</option>
+              <option value="de">German</option>
+              <option value="pt">Portuguese</option>
+              <option value="it">Italian</option>
+              <option value="zh-CN">Chinese</option>
+              <option value="hi">Hindi</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <a href="#" onclick="showMainContent();return false;"><i class="fas fa-home"></i> Home</a>
+      <a href="#" class="news-menu-link" onclick="showNewsPage();return false;"><span><i class="fas fa-newspaper"></i> News</span><span id="newsCounterBadge" class="news-counter-badge" hidden>0</span></a>
+      <a href="#categoriesContainer" onclick="showMainContent();"><i class="fas fa-th-large"></i> Categories</a>
+      <a href="#promo" onclick="showMainContent();"><i class="fas fa-gem"></i> Promotions</a>
+      <a href="#contact-footer" onclick="showMainContent();"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="#" onclick="showQuickContactPage();return false;"><i class="fas fa-headset"></i> Get in touch</a>
+      <button id="aiAssistantBtn" class="menu-action-btn ai-menu-btn" type="button"><i class="fas fa-robot"></i> AI Assistant</button>
+      <div class="menu-item theme-menu-item">
+        <button class="theme-switch-btn" id="themeDropdownBtn" type="button">
+          <i class="fas fa-palette"></i> Theme <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="theme-options" id="themeOptions">
+          <button data-theme="default" type="button" aria-label="Dark theme"><i class="fas fa-moon"></i></button>
+          <button data-theme="light" type="button" aria-label="Light theme"><i class="fas fa-sun"></i></button>
+        </div>
+      </div>
+      <button id="adminPortalBtn" class="menu-action-btn admin-menu-btn-main" type="button"><i class="fas fa-lock"></i> Admin</button>
+    </nav>
+  </aside>
+
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="header-left">
+        <button class="menu-icon-btn" id="menuToggleBtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+        <a class="logo-area" href="#" onclick="showMainContent();return false;" aria-label="Global Prosperity Network home">
+          <span class="logo-mark" aria-hidden="true"><i class="fas fa-globe-americas"></i></span>
+          <span class="logo-label">
+            <span class="logo-kicker">Global</span>
+            <strong class="logo-title">Prosperity Network</strong>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <div class="main-container">
+      <section class="slideshow-container" id="promo" aria-label="Featured promotions">
+        <div class="slide active" style="background-image: linear-gradient(0deg,#01011eaa,#01011eaa),url('https://loremflickr.com/1600/900/gaming,workspace?lock=101');">
+          <div class="slide-content">
+            <i class="fas fa-gamepad fa-2x"></i>
+            <h2>Gaming Creator Workspace</h2>
+            <p>Build, test, stream, and manage gaming projects from one focused setup.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/design,workspace?lock=102');">
+          <div class="slide-content">
+            <i class="fas fa-paintbrush fa-2x"></i>
+            <h2>Design Tools Suite</h2>
+            <p>Create brand visuals, prototypes, social graphics, and client-ready layouts.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/cad,engineering?lock=103');">
+          <div class="slide-content">
+            <i class="fas fa-cube fa-2x"></i>
+            <h2>CAD &amp; 3D Engineering</h2>
+            <p>Autodesk, SolidWorks, SketchUp</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/travel,planning?lock=104');">
+          <div class="slide-content">
+            <i class="fas fa-plane fa-2x"></i>
+            <h2>Travel &amp; Lifestyle</h2>
+            <p>Booking, Expedia, Airbnb partnerships</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/cybersecurity,workspace?lock=105');">
+          <div class="slide-content">
+            <i class="fas fa-shield-alt fa-2x"></i>
+            <h2>VPN Security</h2>
+            <p>Protect research, client work, and browsing across public and private networks.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/video,editing?lock=106');">
+          <div class="slide-content">
+            <i class="fas fa-video fa-2x"></i>
+            <h2>Video Editing Studio</h2>
+            <p>Edit tutorials, campaigns, demos, and social videos with polished timelines.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/laptop,office?lock=107');">
+          <div class="slide-content">
+            <i class="fas fa-cloud fa-2x"></i>
+            <h2>SaaS Operations Desk</h2>
+            <p>Organize documents, dashboards, workflows, projects, and team knowledge.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/marketing,workspace?lock=108');">
+          <div class="slide-content">
+            <i class="fas fa-chart-line fa-2x"></i>
+            <h2>Marketing Command Center</h2>
+            <p>Research keywords, plan campaigns, write content, and track growth signals.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/ecommerce,workspace?lock=109');">
+          <div class="slide-content">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <h2>E-commerce Build Room</h2>
+            <p>Launch storefronts, manage products, review orders, and improve checkout flows.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/prototype,design?lock=110');">
+          <div class="slide-content">
+            <i class="fas fa-layer-group fa-2x"></i>
+            <h2>Prototype Review</h2>
+            <p>Plan screens, test ideas, share feedback, and refine user experiences quickly.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/architecture,model?lock=111');">
+          <div class="slide-content">
+            <i class="fas fa-drafting-compass fa-2x"></i>
+            <h2>Architecture Modeling</h2>
+            <p>Shape buildings, interiors, layouts, and presentation models for project teams.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/3d,rendering?lock=112');">
+          <div class="slide-content">
+            <i class="fas fa-cubes fa-2x"></i>
+            <h2>3D Render Workflow</h2>
+            <p>Create materials, lighting, scenes, and product visuals for presentation work.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/coding,workspace?lock=113');">
+          <div class="slide-content">
+            <i class="fas fa-code fa-2x"></i>
+            <h2>Web Project Workspace</h2>
+            <p>Build landing pages, dashboards, product sites, and client-ready interfaces.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/content,creator?lock=114');">
+          <div class="slide-content">
+            <i class="fas fa-pen-nib fa-2x"></i>
+            <h2>Content Creator Desk</h2>
+            <p>Draft posts, scripts, newsletters, visuals, and campaigns from one creative space.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/team,workspace?lock=115');">
+          <div class="slide-content">
+            <i class="fas fa-users fa-2x"></i>
+            <h2>Team Collaboration</h2>
+            <p>Coordinate tasks, comments, files, reviews, approvals, and project ownership.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/dashboard,analytics?lock=116');">
+          <div class="slide-content">
+            <i class="fas fa-chart-pie fa-2x"></i>
+            <h2>Analytics Dashboard</h2>
+            <p>Track performance, compare campaigns, review activity, and guide decisions.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/remote,work?lock=117');">
+          <div class="slide-content">
+            <i class="fas fa-laptop-house fa-2x"></i>
+            <h2>Remote Work Setup</h2>
+            <p>Run secure, organized work from anywhere with tools that stay connected.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/meeting,planning?lock=118');">
+          <div class="slide-content">
+            <i class="fas fa-tasks fa-2x"></i>
+            <h2>Project Planning</h2>
+            <p>Map timelines, assign work, organize deliverables, and keep progress visible.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/photography,editing?lock=119');">
+          <div class="slide-content">
+            <i class="fas fa-camera-retro fa-2x"></i>
+            <h2>Photo Editing Flow</h2>
+            <p>Retouch images, prepare brand visuals, export assets, and refine campaigns.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/mobile,app,design?lock=120');">
+          <div class="slide-content">
+            <i class="fas fa-mobile-alt fa-2x"></i>
+            <h2>Mobile App Concept</h2>
+            <p>Design flows, test screens, plan launches, and prepare app presentations.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/cloud,technology?lock=121');">
+          <div class="slide-content">
+            <i class="fas fa-server fa-2x"></i>
+            <h2>Cloud Hosting Stack</h2>
+            <p>Host sites, manage environments, protect data, and keep projects online.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/online,store?lock=122');">
+          <div class="slide-content">
+            <i class="fas fa-store fa-2x"></i>
+            <h2>Store Launch Project</h2>
+            <p>Prepare product pages, organize assets, connect payments, and open sales channels.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/ui,design,workspace?lock=123');">
+          <div class="slide-content">
+            <i class="fas fa-object-group fa-2x"></i>
+            <h2>UI Design Workshop</h2>
+            <p>Arrange components, refine screens, and prepare polished interface systems.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/graphic,design,desk?lock=124');">
+          <div class="slide-content">
+            <i class="fas fa-bezier-curve fa-2x"></i>
+            <h2>Graphic Design Desk</h2>
+            <p>Compose posters, brand assets, campaign graphics, and presentation visuals.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/software,developer,workspace?lock=125');">
+          <div class="slide-content">
+            <i class="fas fa-terminal fa-2x"></i>
+            <h2>Software Build Session</h2>
+            <p>Write code, test features, review interfaces, and ship working platforms.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/data,analytics,office?lock=126');">
+          <div class="slide-content">
+            <i class="fas fa-database fa-2x"></i>
+            <h2>Data Review Station</h2>
+            <p>Inspect reports, compare metrics, and turn platform activity into decisions.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/social,media,marketing?lock=127');">
+          <div class="slide-content">
+            <i class="fas fa-bullhorn fa-2x"></i>
+            <h2>Social Campaign Studio</h2>
+            <p>Plan posts, design visuals, schedule content, and review audience response.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/audio,studio,editing?lock=128');">
+          <div class="slide-content">
+            <i class="fas fa-microphone-alt fa-2x"></i>
+            <h2>Audio Production Desk</h2>
+            <p>Record voiceovers, clean sound, mix tracks, and prepare creator content.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/product,design,prototype?lock=129');">
+          <div class="slide-content">
+            <i class="fas fa-lightbulb fa-2x"></i>
+            <h2>Product Idea Lab</h2>
+            <p>Turn concepts into prototypes, test layouts, and prepare launch material.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/engineering,blueprint,desk?lock=130');">
+          <div class="slide-content">
+            <i class="fas fa-ruler-combined fa-2x"></i>
+            <h2>Engineering Blueprint Review</h2>
+            <p>Check plans, refine details, coordinate models, and prepare technical outputs.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/digital,art,tablet?lock=131');">
+          <div class="slide-content">
+            <i class="fas fa-tablet-alt fa-2x"></i>
+            <h2>Digital Art Session</h2>
+            <p>Sketch concepts, paint assets, create illustrations, and refine creative direction.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/business,dashboard,laptop?lock=132');">
+          <div class="slide-content">
+            <i class="fas fa-briefcase fa-2x"></i>
+            <h2>Business Dashboard</h2>
+            <p>Monitor projects, sales, campaigns, support tasks, and operational performance.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/online,learning,computer?lock=133');">
+          <div class="slide-content">
+            <i class="fas fa-graduation-cap fa-2x"></i>
+            <h2>Learning Workspace</h2>
+            <p>Study tools, follow tutorials, build practice projects, and document progress.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(0deg,#0a0f2eaa,#0a0f2eaa),url('https://loremflickr.com/1600/900/creative,agency,workspace?lock=134');">
+          <div class="slide-content">
+            <i class="fas fa-magic fa-2x"></i>
+            <h2>Creative Agency Flow</h2>
+            <p>Move from brief to concept, production, review, revision, and delivery.</p>
+            <div class="coming-soon-field" hidden>Coming soon</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="search-filter">
+        <input type="text" id="searchInput" placeholder="Search by category name... (e.g., Gaming, VPN, Design)">
+        <select id="categoryFilter" class="filter-select">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+
+      <section id="categoriesContainer" aria-label="Affiliate categories"></section>
+
+      <section class="newsletter" aria-labelledby="newsletterTitle">
+        <h3 id="newsletterTitle"><i class="fas fa-envelope-open-text"></i> Quantum Newsletter</h3>
+        <p>Exclusive promotions and early access to high-commission offers</p>
+        <form id="newsletterForm" class="newsletter-form">
+          <input type="email" id="newsEmail" placeholder="your@email.com" required>
+          <button type="submit" class="get-link-btn">Subscribe &rarr;</button>
+        </form>
+        <div id="newsMsg"></div>
+      </section>
+    </div>
+  </main>
+
+  <section id="newsPage" class="news-page" aria-label="News page">
+    <div class="news-page-container">
+      <h1><i class="fas fa-newspaper"></i> Latest News</h1>
+      <div id="newsListContainer"></div>
+    </div>
+  </section>
+
+  <section id="quickContactPage" class="news-page" aria-label="Get in touch page">
+    <div class="news-page-container">
+      <h1><i class="fas fa-headset"></i> Get in touch</h1>
+      <div class="quick-contact-links standalone-contact-links">
+        <a href="https://wa.me/" aria-label="Contact by WhatsApp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+        <a href="sms:" aria-label="Contact by SMS"><i class="fas fa-comment-dots"></i><span>SMS</span></a>
+        <a href="tel:" aria-label="Contact by phone"><i class="fas fa-phone-alt"></i><span>Phone</span></a>
+        <a href="mailto:" aria-label="Contact by Gmail"><i class="fas fa-envelope"></i><span>Gmail</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact-footer">
+    <div class="footer-container">
+      <div class="contact-follow-wrapper">
+        <section class="contact-box" aria-labelledby="contactTitle">
+          <h3 id="contactTitle"><i class="fas fa-envelope"></i> Contact Us</h3>
+          <form id="footerContactForm">
+            <input type="text" placeholder="Name" id="contactName" required>
+            <input type="email" placeholder="Email" id="contactEmail" required>
+            <textarea placeholder="Message" id="contactMsg" rows="3"></textarea>
+            <button type="submit" class="get-link-btn">Send Message</button>
+            <div id="contactFormStatus"></div>
+          </form>
+        </section>
+        <section class="follow-box" aria-labelledby="followTitle">
+          <h3 id="followTitle"><i class="fas fa-share-alt"></i> Follow Us</h3>
+          <div class="social-links">
+            <div class="social-row"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a><button class="visit-site-btn" data-link="#" type="button">Visit Site</button></div>
+            <div class="social-row"><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a><button class="visit-site-btn" data-link="#" type="button">Visit Site</button></div>
+            <div class="social-row"><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a><button class="visit-site-btn" data-link="#" type="button">Visit Site</button></div>
+            <div class="social-row"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a><button class="visit-site-btn" data-link="#" type="button">Visit Site</button></div>
+            <div class="social-row"><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a><button class="visit-site-btn" data-link="#" type="button">Visit Site</button></div>
+            <div class="social-row"><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i><span>TikTok</span></a><button class="visit-site-btn" data-link="#" type="button">Visit Site</button></div>
+            <div class="social-row"><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i><span>YouTube</span></a><button class="visit-site-btn" data-link="#" type="button">Visit Site</button></div>
+          </div>
+        </section>
+      </div>
+      <div class="copyright">
+        &copy; 2026 Global Prosperity Network - Beyond Limits. All trademarks belong to their respective owners.
+      </div>
+    </div>
+  </footer>
+
+  <section id="adminPage" class="admin-page" aria-label="Admin panel">
+    <div class="admin-shell login-only">
+      <div class="admin-page-header">
+        <div class="admin-title-logo">
+          <span class="admin-logo-mark"><i class="fas fa-user-shield"></i></span>
+          <span class="admin-kicker">Secure workspace</span>
+          <h2>Admin Panel</h2>
+        </div>
+        <button id="closeAdminBtn" class="close-admin-btn danger-icon-btn" type="button" aria-label="Back to site"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="admin-content">
+        <nav id="adminMenu" class="admin-menu" aria-label="Admin sections" hidden>
+          <div class="admin-menu-title">
+            <span><i class="fas fa-layer-group"></i> Menu</span>
+            <button id="adminMenuExitBtn" class="danger-icon-btn small" type="button" aria-label="Exit admin"><i class="fas fa-right-from-bracket"></i></button>
+          </div>
+          <button class="admin-menu-btn" data-admin-section="adminCreateSection" type="button" disabled><i class="fas fa-pen-to-square"></i> Create</button>
+          <button class="admin-menu-btn" data-admin-section="adminNewsListSection" type="button" disabled><i class="fas fa-newspaper"></i> News</button>
+          <button class="admin-menu-btn" data-admin-section="adminSubscribersSection" type="button" disabled><i class="fas fa-users"></i> Subscribers</button>
+          <button class="admin-menu-btn" data-admin-section="adminMessagesSection" type="button" disabled><i class="fas fa-inbox"></i> Messages</button>
+          <button class="admin-menu-btn" data-admin-section="adminVisitorsSection" type="button" disabled><i class="fas fa-eye"></i> Visitors</button>
+        </nav>
+
+        <div class="admin-sections">
+          <section id="loginSection" class="admin-card admin-section active">
+            <span class="admin-kicker">Access</span>
+            <h3>Login</h3>
+            <input type="text" id="adminUser" placeholder="Username">
+            <div class="password-field">
+              <input type="password" id="adminPass" placeholder="Password">
+              <button id="toggleAdminPassBtn" class="password-toggle-btn" type="button" aria-label="Show password"><i class="fas fa-eye"></i></button>
+            </div>
+            <button id="doLoginBtn" class="get-link-btn" type="button">Login</button>
+          </section>
+
+          <div id="adminNewsSection" class="admin-dashboard" hidden>
+            <section id="adminCreateSection" class="admin-card admin-section">
+              <span class="admin-kicker">Publisher</span>
+              <h3>Create News</h3>
+              <input type="text" id="newsTitle" placeholder="Title">
+              <textarea id="newsContent" placeholder="Content" rows="4"></textarea>
+              <input type="file" id="newsImage" accept="image/*">
+              <div id="imagePreview"></div>
+              <div class="admin-buttons">
+                <button id="createNewsBtn" class="get-link-btn" type="button">Create News</button>
+                <button id="publishNewsBtn" class="get-link-btn" type="button">Publish</button>
+              </div>
+            </section>
+
+            <section id="adminNewsListSection" class="admin-card admin-section">
+              <span class="admin-kicker">Content</span>
+              <h3>Existing News</h3>
+              <div id="adminNewsList"></div>
+            </section>
+
+            <section id="adminSubscribersSection" class="admin-card admin-section">
+              <span class="admin-kicker">Audience</span>
+              <h3>Subscribers</h3>
+              <div id="adminSubscribersList"></div>
+            </section>
+
+            <section id="adminMessagesSection" class="admin-card admin-section">
+              <span class="admin-kicker">Inbox</span>
+              <h3>Contact Messages</h3>
+              <div id="adminMessagesList"></div>
+            </section>
+
+            <section id="adminVisitorsSection" class="admin-card admin-section">
+              <span class="admin-kicker">Analytics</span>
+              <h3><i class="fas fa-chart-simple"></i> Website Visitors</h3>
+              <div id="adminVisitorStats" class="visitor-stats-grid"></div>
+              <div class="visitor-admin-grid">
+                <div>
+                  <h4><i class="fas fa-envelope"></i> Visitor Emails</h4>
+                  <div id="adminVisitorEmailsList" class="visitor-list"></div>
+                </div>
+                <div>
+                  <div class="visitor-section-title-row">
+                    <h4><i class="fas fa-clock-rotate-left"></i> Visit History</h4>
+                    <button id="clearVisitorHistoryBtn" class="visitor-danger-btn" type="button"><i class="fas fa-trash"></i> Clear All</button>
+                  </div>
+                  <div id="adminVisitorHistory" class="visitor-list"></div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="aiAssistantPanel" class="ai-assistant-panel" aria-label="AI assistant" hidden>
+    <div class="ai-assistant-dialog">
+      <div class="ai-assistant-header">
+        <div>
+          <span class="admin-kicker">Platform guide</span>
+          <h2><i class="fas fa-robot"></i> AI Assistant</h2>
+        </div>
+        <button id="closeAiAssistantBtn" class="close-admin-btn" type="button"><i class="fas fa-times"></i> Close</button>
+      </div>
+      <form id="aiAssistantForm" class="ai-assistant-form">
+        <label for="aiQuestion">Ask AI anything about any platform or category in this app</label>
+        <textarea id="aiQuestion" rows="4" placeholder="Example: Which platforms help with poster design?"></textarea>
+        <button class="get-link-btn" type="submit"><i class="fas fa-paper-plane"></i> Ask AI</button>
+      </form>
+      <div id="aiAssistantAnswer" class="ai-assistant-answer" aria-live="polite">
+        Ask about a platform, category, or what tool fits your goal.
+      </div>
+    </div>
+  </section>
+
+  <div id="comingSoonOverlay" class="coming-soon-overlay" aria-live="polite" hidden>
+    <div class="coming-soon-card">
+      <p>Coming soon..</p>
+      <button id="closeComingSoonBtn" class="get-link-btn" type="button">OK</button>
+    </div>
+  </div>
+
+  <script>
+    window.openExternalTranslator = function(language) {
+      if (!language) return;
+      const translateUrl = "https://translate.google.com/translate?sl=auto&tl=" + encodeURIComponent(language) + "&u=" + encodeURIComponent(window.location.href);
+      window.open(translateUrl, "_blank", "noopener");
+    };
+  </script>
+  <script src="config.js"></script>
+  <script src="images.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
